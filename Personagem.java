@@ -6,6 +6,8 @@ public class Personagem{
   int energia;
   private int fome;
   private int sono;
+  private static final String[] ITENS = {"Javali Selvagem", "Amora", "Batata Frita", "Peixe", "Raízes"};
+
 
   //esse é o construtor padrão
   //criado automaticamente pelo compilador, ainda que não seja escrito explicitamente
@@ -66,6 +68,32 @@ public class Personagem{
     else{
       System.out.printf("%s sem sono...\n", nome);
     }
+  }
+
+  void oQueFazer(Personagem p1){
+
+    var gerador = new Random();
+    int oQueFazer = gerador.nextInt(4);
+    if (energia>0) {
+      
+      switch(oQueFazer){
+
+        case 0:
+        cacar();
+        break;
+
+        case 1:
+        comer();
+        break;
+
+        case 2:
+        dormir();
+        break;
+        
+      }
+      
+    }
+  
   }
 
   void morrer(){

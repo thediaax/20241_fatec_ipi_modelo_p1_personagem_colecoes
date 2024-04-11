@@ -10,10 +10,10 @@ public class VetorDinamico {
   VetorDinamico(){
     cap = CAP_MINIMA;
     qtde = 0;
-    elementos = new int[CAP_MINIMA];
+    elementos = new String[CAP_MINIMA];
   }
 
-  VetorDinamico(int capMinima){
+  VetorDinamico(String capMinima){
     double aux = capMinima;
     while (aux >= 2)
       aux /= 2;
@@ -21,7 +21,7 @@ public class VetorDinamico {
   }
 
   //terminar esse método
-  void adicionar(int elemento){
+  void adicionar(String elemento){
     //se estiver cheio, redimensionar antes de adicionar
     if(estaCheio())redimensionar();
     elementos[qtde] = elemento;
@@ -41,7 +41,7 @@ public class VetorDinamico {
   //escrever esse método
   private void redimensionar(){
     //alocar um vetor com o dobro da capacidade atual chamado auxiliar
-    int [] aux = new int[cap * 2];
+    String [] aux = new String[cap * 2];
     //copiar todo mundo do vetor elementos para o vetor auxiliar
     for(int i = 0; i < cap; i++){
       aux[i] = elementos[i];
@@ -55,11 +55,11 @@ public class VetorDinamico {
   }
 
   //implemente esse método
-  void adicionarSemRepeticao(int e){
+  void adicionarSemRepeticao(String e){
     if(!existe(e)) adicionar(e);
   }
 
-  boolean existe(int e){
+  boolean existe(String e){
     for (int i = 0; i < qtde; i++)
       if (e == elementos[i])
         return true;
