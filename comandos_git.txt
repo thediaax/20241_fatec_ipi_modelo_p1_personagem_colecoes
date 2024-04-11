@@ -1,0 +1,2 @@
+git fork - serve para fazer alterações no projeto sem afetar o repositório original
+git clone - serve para clonar um reposítorio existente já existente

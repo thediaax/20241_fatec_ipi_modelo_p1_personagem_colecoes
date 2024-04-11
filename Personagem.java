@@ -9,7 +9,7 @@ public class Personagem{
 
   //esse é o construtor padrão
   //criado automaticamente pelo compilador, ainda que não seja escrito explicitamente
-  Personagem(){
+  Personagem(String string){
     nome = null;
     energia = 10;
     fome = 0;
@@ -67,6 +67,16 @@ public class Personagem{
       System.out.printf("%s sem sono...\n", nome);
     }
   }
+
+  void morrer(){
+    if(energia<=0) {
+
+      System.out.printf("%s morreu\n", nome);
+      System.exit(0);
+    }
+  }
+
+
 
   public String toString(){
     return String.format(
