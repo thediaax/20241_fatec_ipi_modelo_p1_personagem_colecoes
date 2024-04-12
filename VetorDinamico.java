@@ -1,25 +1,28 @@
 import java.util.Arrays;
 
 public class VetorDinamico {
-  //variáveis de instância (cada instância ou objeto tem a sua cópia)
-  private int qtde;
-  private int cap;
-  private int [] elementos;
-  //variável de classe (todas as instâncias compartilham este mesmo valor)
-  private static final int CAP_MINIMA = 4;
-  VetorDinamico(){
-    cap = CAP_MINIMA;
-    qtde = 0;
-    elementos = new String[CAP_MINIMA];
-  }
+    // variáveis de instância
+    private int qtde; // quantidade de elementos no vetor
+    private int cap; // capacidade atual do vetor
+    private String[] elementos; // array para armazenar os elementos do vetor
 
-  VetorDinamico(String capMinima){
-    double aux = capMinima;
-    while (aux >= 2)
-      aux /= 2;
-    cap = aux == 1 && capMinima > 3 ? capMinima : CAP_MINIMA;
-  }
+    // variável de classe
+    private static final int CAP_MINIMA = 4; // capacidade mínima do vetor
 
+    // Construtor padrão
+    VetorDinamico() {
+        cap = CAP_MINIMA;
+        qtde = 0;
+        elementos = new String[CAP_MINIMA];
+    }
+
+    // Construtor com capacidade mínima personalizada
+    VetorDinamico(int capMinima) {
+        double aux = capMinima;
+        while (aux >= 2)
+            aux /= 2;
+        cap = aux == 1 && capMinima > 3 ? capMinima : CAP_MINIMA;
+    }
   //terminar esse método
   void adicionar(String elemento){
     //se estiver cheio, redimensionar antes de adicionar
@@ -86,19 +89,19 @@ public class VetorDinamico {
 
   }
 
-  int [] getElementos(){
+  String[] getElementos(){
     return Arrays.copyOf(elementos, cap);
     // return elementos;
   }
 
-  public String toString(){
+  public String toString() {
     StringBuilder sb = new StringBuilder("");
     sb.append("Qtde: ").append(qtde);
     sb.append("\n");
     sb.append("Cap: ").append(cap);
     sb.append(qtde > 0 ? "\nElementos: " : "");
-    for (int i = 0; i < qtde; i++){
-      sb.append(elementos[i]).append(" ");
+    for (int i = 0; i < qtde; i++) {
+        sb.append(elementos[i]).append(" ");
     }
     return sb.toString();
   }

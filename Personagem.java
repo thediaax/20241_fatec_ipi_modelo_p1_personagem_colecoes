@@ -6,7 +6,10 @@ public class Personagem{
   int energia;
   private int fome;
   private int sono;
-  private static final String[] ITENS = {"Javali Selvagem", "Amora", "Batata Frita", "Peixe", "Raízes"};
+  private int estoque;
+  private static final 
+  String[] ITENS =
+   {"Javali Selvagem", "Amora", "Batata Frita", "Peixe",};
 
 
   //esse é o construtor padrão
@@ -16,6 +19,7 @@ public class Personagem{
     energia = 10;
     fome = 0;
     sono = 0;
+    estoque = 0;
   }
 
   //construtor personalizado
@@ -31,12 +35,29 @@ public class Personagem{
 
   void cacar(){
     if(energia >= 2){
+      Random gerador = new Random();
+      int oQueFazer = gerador.nextInt(4);
+        if(oQueFazer == 0){
+          System.out.printf("Cacar %s\n", ITENS[oQueFazer]);
+        }
+        else if (oQueFazer == 1){
+          System.out.printf("Cacar %s", ITENS[oQueFazer]);
+        }
+        else if (oQueFazer == 2){
+          System.out.printf("Cacar %s", ITENS[oQueFazer]);
+        }
+        else if (oQueFazer == 3){
+          System.out.printf("Cacar %s", ITENS[oQueFazer]);
+        }
+        else{
+          System.out.printf("%s esta sem energia para cacar\n", nome);
+        }
+
+
       System.out.printf("%s esta cacando...\n", nome);
-      energia -= 2; // energia = energia - 2;
+      
     }
-    else{
-      System.out.printf("%s sem energia para cacar...\n", nome);
-    }
+    energia -= 2; // energia = energia - 2;
     fome = Math.min(fome + 1, 10);
     //resolver com o ternário
     sono = sono < 10 ? sono + 1 : sono;
@@ -70,32 +91,6 @@ public class Personagem{
     }
   }
 
-  void oQueFazer(Personagem p1){
-
-    var gerador = new Random();
-    int oQueFazer = gerador.nextInt(4);
-    if (energia>0) {
-      
-      switch(oQueFazer){
-
-        case 0:
-        cacar();
-        break;
-
-        case 1:
-        comer();
-        break;
-
-        case 2:
-        dormir();
-        break;
-        
-      }
-      
-    }
-  
-  }
-
   void morrer(){
     if(energia<=0) {
 
@@ -103,8 +98,6 @@ public class Personagem{
       System.exit(0);
     }
   }
-
-
 
   public String toString(){
     return String.format(
