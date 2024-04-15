@@ -6,20 +6,17 @@ public class Personagem{
   int energia;
   private int fome;
   private int sono;
-  private int estoque;
-  private static final 
-  String[] ITENS =
-   {"Javali Selvagem", "Amora", "Batata Frita", "Peixe",};
+  private VetorDinamico estoque;
 
 
   //esse é o construtor padrão
   //criado automaticamente pelo compilador, ainda que não seja escrito explicitamente
   Personagem(String string){
-    nome = null;
+    nome = "Machion";
     energia = 10;
     fome = 0;
     sono = 0;
-    estoque = 0;
+    estoque = new VetorDinamico();
   }
 
   //construtor personalizado
@@ -33,10 +30,10 @@ public class Personagem{
       this.sono = sono;
   }
 
-  void cacar(){
+  void cacar(String[] ITENS){
     if(energia >= 2){
       Random gerador = new Random();
-      int oQueFazer = gerador.nextInt(4);
+      int oQueFazer = gerador.nextInt(5);
         if(oQueFazer == 0){
           System.out.printf("Cacar %s\n", ITENS[oQueFazer]);
         }
@@ -47,6 +44,9 @@ public class Personagem{
           System.out.printf("Cacar %s", ITENS[oQueFazer]);
         }
         else if (oQueFazer == 3){
+          System.out.printf("Cacar %s", ITENS[oQueFazer]);
+        }
+        else if (oQueFazer == 4){
           System.out.printf("Cacar %s", ITENS[oQueFazer]);
         }
         else{
@@ -105,4 +105,5 @@ public class Personagem{
       nome, energia, fome, sono
     );
   }
+
 }
