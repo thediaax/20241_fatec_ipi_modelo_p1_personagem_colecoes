@@ -6,7 +6,7 @@ public class Personagem{
   int energia;
   private int fome;
   private int sono;
-  private VetorDinamico estoque;
+  private VetorDinamico estoque; //declara estoque
 
 
   //esse é o construtor padrão
@@ -16,7 +16,7 @@ public class Personagem{
     energia = 10;
     fome = 0;
     sono = 0;
-    estoque = new VetorDinamico();
+    estoque = new VetorDinamico(); //faz o estoque ser um novo vetor dinamico
   }
 
   //construtor personalizado
@@ -33,30 +33,17 @@ public class Personagem{
   void cacar(String[] ITENS){
     if(energia >= 2){
       Random gerador = new Random();
-      int oQueFazer = gerador.nextInt(5);
-        if(oQueFazer == 0){
-          System.out.printf("Cacar %s\n", ITENS[oQueFazer]);
-        }
-        else if (oQueFazer == 1){
-          System.out.printf("Cacar %s", ITENS[oQueFazer]);
-        }
-        else if (oQueFazer == 2){
-          System.out.printf("Cacar %s", ITENS[oQueFazer]);
-        }
-        else if (oQueFazer == 3){
-          System.out.printf("Cacar %s", ITENS[oQueFazer]);
-        }
-        else if (oQueFazer == 4){
-          System.out.printf("Cacar %s", ITENS[oQueFazer]);
-        }
-        else{
-          System.out.printf("%s esta sem energia para cacar\n", nome);
-        }
-
-
-      System.out.printf("%s esta cacando...\n", nome);
       
+      int oQueCacar = gerador.nextInt(ITENS.length);//tem a mesma chance de achar qualquer item
+      System.out.printf("Cacar %s\n", ITENS[oQueCacar]);
+      estoque.adicionar(ITENS[oQueCacar]);
+      System.out.printf("%s esta cacando %s\n", nome, ITENS[oQueCacar]);
     }
+    else{
+          System.out.printf("%s esta sem energia para cacar\n", nome);
+    }
+      
+    
     energia -= 2; // energia = energia - 2;
     fome = Math.min(fome + 1, 10);
     //resolver com o ternário
@@ -101,8 +88,8 @@ public class Personagem{
 
   public String toString(){
     return String.format(
-      "%s: (e:%d, f:%d, s:%d)",
-      nome, energia, fome, sono
+      "%s: (e:%d, f:%d, s:%d, E:%s)",
+      nome, energia, fome, sono, estoque
     );
   }
 

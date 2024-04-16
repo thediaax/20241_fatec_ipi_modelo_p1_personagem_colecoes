@@ -9,7 +9,7 @@
             {"Javali Selvagem", "Amora", "Batata Frita", "Peixe", "Manga"};
 
             while(true){
-                int oQueFazer = gerador.nextInt(4);
+                int oQueFazer = gerador.nextInt(3);
                 switch (oQueFazer) {
                     case 0:
                         p1.cacar(ITENS);
@@ -26,6 +26,7 @@
                 }
 
                 System.out.println(p1);
+                Thread.sleep(1000);//intervalo
             }
         }
     }
