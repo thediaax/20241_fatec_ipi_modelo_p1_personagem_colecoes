@@ -8,7 +8,7 @@ public class Jogo {
         p1.nome = "Machion";
         p2.nome = "Bossini";
         String[] ITENS =
-        {"Javali Selvagem - ", "Amora - ", "Batata Frita - ", "Peixe - ", "Manga - "};
+        {"Javali Selvagem - ", "Amora - ", "Batata Frita - ", "Peixe - ", "Manga - "};//itens do jogo formatados
 
 
         while(true){
@@ -40,8 +40,8 @@ public class Jogo {
                     break;
             }
             p1.morrer();
-            p2.morrer();
-
+            p2.morrer();//correção desse metodo
+            //formatação da saida
             System.out.println();
             System.out.println("   Estado dos personagens");
             System.out.println(p1);
