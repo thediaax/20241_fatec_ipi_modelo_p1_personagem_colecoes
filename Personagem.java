@@ -35,9 +35,10 @@ public class Personagem{
       Random gerador = new Random();
       
       int oQueCacar = gerador.nextInt(ITENS.length);//tem a mesma chance de achar qualquer item
-      System.out.printf("Cacar %s\n", ITENS[oQueCacar]);
+      System.out.printf(" %s Foi cacar\n", nome);
       estoque.adicionar(ITENS[oQueCacar]);
-      System.out.printf("%s esta cacando %s\n", nome, ITENS[oQueCacar]);
+      System.out.printf("%s cacou %s\n", nome, ITENS[oQueCacar]);
+      System.out.printf("%s foi adicionado ao estoque\n", ITENS[oQueCacar]);
     }
     else{
           System.out.printf("%s esta sem energia para cacar\n", nome);
@@ -56,14 +57,26 @@ public class Personagem{
       //aumentar o valor de energia de 1
     //caso contrario
       //so vai avisar que esta sem fome
-      switch(fome){
-        case 0:
-          System.out.printf("%s sem fome....\n", nome);
-          break;
-        default:
-          System.out.printf("%s comendo...\n", nome);
-          --fome;
-          energia = (energia == 10 ? energia : energia + 1);
+      // switch(fome){
+      //   case 0:
+      //     System.out.printf("%s sem fome....\n", nome);
+      //     break;
+      //   default:
+      //     System.out.printf("%s comendo...\n", nome);
+      //     --fome;
+
+      if(energia>=1 && estoque.qtde >=1){
+        String ultimoItem = estoque.ultimoItem(); // pega o ultimo item do estoque
+        System.out.printf("%s comeu %s\n", nome, ultimoItem);
+        energia = Math.min(energia + 1, 10);
+        estoque.removerUltimoItem(); // tira o último item do estoque
+          fome --;
+      }
+      else if(estoque.qtde == 0){
+        System.out.printf("%s não tem itens no estoque...", nome);  
+      }
+      else{
+      System.out.printf("%s esta sem fome...", nome);
       }
   }
 

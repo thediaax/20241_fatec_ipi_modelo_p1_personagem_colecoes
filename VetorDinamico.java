@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class VetorDinamico {
     // variáveis de instância
-    private int qtde; // quantidade de elementos no vetor
+    public int qtde; // quantidade de elementos no vetor
     private int cap; // capacidade atual do vetor
     private String[] elementos; // array para armazenar os elementos do vetor
 
@@ -75,6 +75,10 @@ public class VetorDinamico {
 
   void removerNoFinal(){
 
+    if (qtde > 0) {
+        qtde--; // Decrementa a quantidade de elementos
+        elementos[qtde] = null; // Remove a referência ao último elemento
+    }
   }
 
   boolean estaVazio(){
@@ -93,6 +97,21 @@ public class VetorDinamico {
     return Arrays.copyOf(elementos, cap);
     // return elementos;
   }
+
+  void removerUltimoItem() {
+    if (qtde > 0) {
+        qtde--;
+        elementos[qtde] = null;
+    }
+}
+
+String ultimoItem() {
+    if (qtde > 0) {
+        return elementos[qtde - 1];
+    }
+    return null;
+}
+
 
   public String toString() {
     StringBuilder sb = new StringBuilder("");

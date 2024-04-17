@@ -3,8 +3,9 @@
     public class Jogo {
         public static void main(String[] args) throws Exception {
             var p1 = new Personagem("Machion");
-            Random gerador = new Random();
             p1.nome = "Machion";
+            Random gerador = new Random();
+            
             String[] ITENS =
             {"Javali Selvagem", "Amora", "Batata Frita", "Peixe", "Manga"};
 
@@ -27,6 +28,7 @@
 
                 System.out.println(p1);
                 Thread.sleep(1000);//intervalo
+                System.out.printf("\n---------------\n");
             }
         }
     }
