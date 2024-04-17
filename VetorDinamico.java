@@ -104,7 +104,7 @@ public class VetorDinamico {
         elementos[qtde] = null;
     }
 }
-
+//adição dos remover ultimo item e ultimo item
 String ultimoItem() {
     if (qtde > 0) {
         return elementos[qtde - 1];
