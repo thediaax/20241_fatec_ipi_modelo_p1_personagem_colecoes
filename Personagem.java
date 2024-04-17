@@ -51,18 +51,6 @@ public class Personagem{
   }
 
   void comer() {
-    //se tiver fome
-      //comer e reduzir o valor de fome de 1
-      //aumentar o valor de energia de 1
-    //caso contrario
-      //so vai avisar que esta sem fome
-      // switch(fome){
-      //   case 0:
-      //     System.out.printf("%s sem fome....\n", nome);
-      //     break;
-      //   default:
-      //     System.out.printf("%s comendo...\n", nome);
-      //     --fome;
 
       if(energia>=1 && estoque.qtde >=1){
         String ultimoItem = estoque.ultimoItem(); // pega o ultimo item do estoque
