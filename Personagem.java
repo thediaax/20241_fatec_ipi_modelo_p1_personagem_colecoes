@@ -12,7 +12,7 @@ public class Personagem{
   //esse é o construtor padrão
   //criado automaticamente pelo compilador, ainda que não seja escrito explicitamente
   Personagem(String string){
-    nome = "Machion";
+    nome = null;
     energia = 10;
     fome = 0;
     sono = 0;
@@ -33,7 +33,6 @@ public class Personagem{
   void cacar(String[] ITENS){
     if(energia >= 2){
       Random gerador = new Random();
-      
       int oQueCacar = gerador.nextInt(ITENS.length);//tem a mesma chance de achar qualquer item
       System.out.printf(" %s Foi cacar\n", nome);
       estoque.adicionar(ITENS[oQueCacar]);
@@ -101,7 +100,7 @@ public class Personagem{
 
   public String toString(){
     return String.format(
-      "%s: (e:%d, f:%d, s:%d, E:%s)",
+      "%s:\nEnergia: %d\nFome: %d\nSono: %d\nEstoque: %s",
       nome, energia, fome, sono, estoque
     );
   }
