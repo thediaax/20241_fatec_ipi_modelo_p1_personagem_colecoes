@@ -60,10 +60,10 @@ public class Personagem{
           fome --;
       }
       else if(estoque.qtde == 0){
-        System.out.printf("%s não tem itens no estoque...", nome);  
+        System.out.printf("%s não tem itens no estoque...\n", nome);  
       }
       else{
-      System.out.printf("%s esta sem fome...", nome);
+      System.out.printf("%s esta sem fome...\n", nome);
       }
   }
 
@@ -78,17 +78,32 @@ public class Personagem{
     }
   }
 
-  void morrer(){
-    if(energia<=0) {
-
-      System.out.printf("%s morreu\n", nome);
-      System.exit(0);
+  void morrer(Personagem outroPersonagem) {
+    if (energia <= 0) {
+        System.out.printf("%s morreu\n", nome);
+        energia = 0;
     }
+    if (outroPersonagem.energia <= 0) {
+      System.out.printf("Ambos os personagens morreram. Fim do jogo.\n");
+      System.out.printf("%s é o grande vencedor!!!\n", nome);
+      System.exit(0);
   }
+    
+ }
+
+  void atacar(Personagem alvo) {
+    int dano = 1; // Definindo o dano como 1
+    alvo.energia -= dano; // Reduz a energia do alvo pelo dano
+    System.out.printf("%s atacou %s\n", nome, alvo.nome);
+    if (alvo.energia <= 0) {
+        System.out.printf("%s derrotou %s!\n", nome, alvo.nome);
+        System.out.printf("%s e o grande campeao!!!!!!\n", nome);
+    }
+}
 
   public String toString(){
     return String.format(
-      "%s:\nEnergia: %d\nFome: %d\nSono: %d\nEstoque: %s",
+      "%s:\nEnergia: %d\nFome: %d\nSono: %d\nEstoque: %s\n",
       nome, energia, fome, sono, estoque
     );
   }
