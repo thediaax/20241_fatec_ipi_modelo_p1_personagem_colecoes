@@ -1,5 +1,22 @@
 git fork - serve para fazer alterações no projeto sem afetar o repositório original.
-git clone - serve para clonar um reposítorio existente já existente.
+git clone - serve para clonar um reposítorio existente já existente. 
 git add - adicionar, alterar ou excluir arquivos locais para a staging area.
+git tag - seve para versionamento dos arquivos
 git commit - indica as alterações que você fez no seu projeto. Realização de um conjunto de mudanças, alterações que você realizou em seu projeto e ajuda no controle de versão. Para ser realizado, precisa de um git add anteriormente.
+git tag 1.0.0 - jogo: torna a morte do personagem real
+git add .
+git commit - feat(p1): viabiliza a morte do personagem
+git add .
+git commit - implementação do cacar correto
+git add .
+git commit - feat(p1): implementa armazenamento de itens
+git add .
+git commit - feat(p1): condição refeição a existência de itens
+git add .
+git commit - indicação da 4 e formatação mais eficiente
+git add .
+git commit - feat(p1): adiciona segundo personagem
+git add .
+git commit - feat(p1): implementa a batalha entre os personagens
+git tag 2.0.0 - jogo: implementa sobrevivencia heroica mas, no final, todos morrem.
 git push - O comando git push é usado para gravar em um repositório remoto, para acontecer é necessario ter realizado um commit e um add anteriormente.
