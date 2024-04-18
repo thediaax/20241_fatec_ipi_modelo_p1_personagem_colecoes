@@ -8,13 +8,13 @@ public class Jogo {
         p1.nome = "Machion";
         p2.nome = "Bossini";
         String[] ITENS =
-        {"Javali Selvagem - ", "Amora - ", "Batata Frita - ", "Peixe - ", "Manga - "};//itens do jogo formatados
+        {"Javali Selvagem - ", "Amora - ", "Batata Frita - ", "Peixe - ", "Manga - "};
         
         p1.energia = Math.max(p1.energia, 0);
         p2.energia = Math.max(p2.energia, 0);
 
         while(p1.energia > 0 || p2.energia > 0){
-            if(p1.energia > 0){ // Personagem 1 realiza uma atividade se energia for >0
+            if(p1.energia > 0){ 
                 int oQueFazerP1 = gerador.nextInt(3);
                 switch (oQueFazerP1) {
                     case 0:
@@ -30,7 +30,7 @@ public class Jogo {
                 p1.morrer(p2);
             }
 
-            if(p2.energia >0){ // Personagem 2 realiza uma atividade se energia for >0
+            if(p2.energia >0){
                 int oQueFazerP2 = gerador.nextInt(3);
                 switch (oQueFazerP2) {
                     case 0:

@@ -1,26 +1,24 @@
 import java.util.Random;
 
 public class Personagem{
-  //variáveis de instância(objeto)
+
   String nome;
   int energia;
   private int fome;
   private int sono;
-  private VetorDinamico estoque; //declara estoque
+  private VetorDinamico estoque;
 
 
-  //esse é o construtor padrão
-  //criado automaticamente pelo compilador, ainda que não seja escrito explicitamente
+
   Personagem(String string){
     nome = null;
     energia = 10;
     fome = 0;
     sono = 0;
-    estoque = new VetorDinamico(); //faz o estoque ser um novo vetor dinamico
+    estoque = new VetorDinamico();
   }
 
-  //construtor personalizado
-  //o que viabiliza a sua existência é a sobrecarga de construtores
+
   Personagem(int energia, int fome, int sono){
     if (energia >= 0 && energia <= 10)
       this.energia = energia;
@@ -33,7 +31,7 @@ public class Personagem{
   void cacar(String[] ITENS){
     if(energia >= 2){
       Random gerador = new Random();
-      int oQueCacar = gerador.nextInt(ITENS.length);//tem a mesma chance de achar qualquer item
+      int oQueCacar = gerador.nextInt(ITENS.length);
       System.out.printf(" %s Foi cacar\n", nome);
       estoque.adicionar(ITENS[oQueCacar]);
       System.out.printf("%s cacou %s\n", nome, ITENS[oQueCacar]);
@@ -44,19 +42,18 @@ public class Personagem{
     }
       
     
-    energia -= 2; // energia = energia - 2;
+    energia -= 2;
     fome = Math.min(fome + 1, 10);
-    //resolver com o ternário
     sono = sono < 10 ? sono + 1 : sono;
   }
 
   void comer() {
 
       if(energia>=1 && estoque.qtde >=1){
-        String ultimoItem = estoque.ultimoItem(); // pega o ultimo item do estoque
+        String ultimoItem = estoque.ultimoItem();
         System.out.printf("%s comeu %s\n", nome, ultimoItem);
         energia = Math.min(energia + 1, 10);
-        estoque.removerUltimoItem(); // tira o último item do estoque
+        estoque.removerUltimoItem();
           fome --;
       }
       else if(estoque.qtde == 0){
@@ -92,8 +89,8 @@ public class Personagem{
  }
 
   void atacar(Personagem alvo) {
-    int dano = 1; // Definindo o dano como 1
-    alvo.energia -= dano; // Reduz a energia do alvo pelo dano
+    int dano = 1; 
+    alvo.energia -= dano;
     System.out.printf("%s atacou %s\n", nome, alvo.nome);
     if (alvo.energia <= 0) {
         System.out.printf("%s derrotou %s!\n", nome, alvo.nome);
